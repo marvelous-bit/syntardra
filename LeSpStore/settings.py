@@ -226,6 +226,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 ROOT_URLCONF = 'LeSpStore.urls'
 
@@ -329,6 +330,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #STATIC_URL = '/static/'
+
+# settings.py
+LOGOUT_REDIRECT_URL = '/'
 
 
 MEDIA_URL = '/media/'

@@ -71,7 +71,7 @@ def show_cart(request):
         cart = Cart.objects.filter(user=user)
 
         amount = 0.0
-        shipping_amount = 60.0
+        shipping_amount = 0.0
         cart_product = [p for p in Cart.objects.all() if p.user == user]
         if cart_product:
             for p in cart_product:
@@ -98,7 +98,7 @@ def plus_cart(request):
         c.quantity += 1
         c.save()
         amount = 0.0
-        shipping_amount = 60.0
+        shipping_amount = 0.0
         cart_product = [p for p in Cart.objects.all() if p.user ==
                         request.user]
         for p in cart_product:
@@ -120,7 +120,7 @@ def minus_cart(request):
         c.quantity -= 1
         c.save()
         amount = 0.0
-        shipping_amount = 60.0
+        shipping_amount = 0.0
         cart_product = [p for p in Cart.objects.all() if p.user ==
                         request.user]
         for p in cart_product:
@@ -140,7 +140,7 @@ def remove_cart(request):
         c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
         c.delete()
         amount = 0.0
-        shipping_amount = 60.0
+        shipping_amount = 0.0
         cart_product = [p for p in Cart.objects.all() if p.user == request.user]
         for p in cart_product:
             tempamount = (p.quantity * p.product.discounted_prie)
@@ -260,18 +260,18 @@ def send_email_after_registration(email, token):
     ATTN : Please do not reply to this email.This mailbox is not monitored and you will not receive a response.
 
     Your Verification Email is Given bellow 👇
-    Click on the link to verify your account https://lespstore.pythonanywhere.com/account-verify/{token}
+    Click on the link to verify your account http://127.0.0.1:9999//account-verify/{token}
 
     If you have any queries, Please contact us at,
 
-    LegendSpam Store,
-    kirtipur,Kathmandu, Nepal.
-    Phone # +9779862413503
-    Email Id: lespstore02595@gmail.com
-    Portfolio: amritgiri01.com.np
+    Systarndra Store,
+    Flevoland, Netherlands.
+    Phone # +31616267179
+    Email Id: info.systarndra@gmail.com
+    Portfolio: http://127.0.0.1:9999/
 
-    Warm Regards,
-    LegendSpam Store
+    MRS ADEYINKA CEO,
+    Systarndra Store
 
     """
     print("\n\n")
@@ -287,12 +287,12 @@ def account_verify(request, token):
 	messages.success(request, "Your Account has been Verified, You can Login Now.")
 	return redirect('/accounts/login/')
 
-# class PasswordChangeView(View):
-#     def passwordchange(request):
-#         totalitem = 0
-#         if request.user.is_authenticated:
-#             totalitem = len(Cart.objects.filter(user=request.user))
-#         return render(request, 'app/passwordchange.html', {'totalitem': totalitem})
+class PasswordChangeView(View):
+     def passwordchange(request):
+         totalitem = 0
+         if request.user.is_authenticated:
+             totalitem = len(Cart.objects.filter(user=request.user))
+         return render(request, 'app/passwordchange.html', {'totalitem': totalitem})
 
 @login_required
 def checkout(request):
@@ -301,7 +301,7 @@ def checkout(request):
     add = Customer.objects.filter(User=user)
     cart_items = Cart.objects.filter(user=user)
     amount = 0.0
-    shipping_amount = 60.0
+    shipping_amount = 0.0
     cart_product = [p for p in Cart.objects.all() if p.user == request.user]
     if cart_product:
         for p in cart_product:

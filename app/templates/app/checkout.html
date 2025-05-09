@@ -15,7 +15,7 @@
             <h5><b>Product:</b> {{item.product.title}} </h5>
             <hr>
             <p><b>Quantity:</b> {{item.quantity}} </p>
-            <p><b>Price:</b> रु. {{item.totalCost}}</p>
+            <p><b>Price:</b> $. {{item.totalCost}}</p>
           </div>
           <div class="col-sm-5">
             <div class="col-sm-12 text-center align-self-center" style="padding-top: 10px;"><img
@@ -32,7 +32,7 @@
       <hr>
       <div class="card border bg-dark my-2">
         <div class="card-body">
-      <p class="text-center fw-bold">Total Cost + रु. 60 = {{totalamount}}</p>
+      <p class="text-center fw-bold">Total Cost  $ {{totalamount}}</p>
         </div>
       </div>
       <form action="/paymentdone" id="myform">
